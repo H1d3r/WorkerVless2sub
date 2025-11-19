@@ -1,16 +1,15 @@
-
 let 快速订阅访问入口 = ['auto'];
 let addresses = [];
-let addressesapi = [];
+let addressesapi = ["https://github.com/zengge99/iplist/raw/refs/heads/main/iplist.txt","https://raw.githubusercontent.com/zhenjiaoer/Worker/refs/heads/main/ip.txt","https://addressesapi.090227.xyz/CloudFlareYes","https://github.com/dbmh2023/addressesapi/raw/refs/heads/main/ipv4.txt"];
 
-let addressesnotls = [];
+let addressesnotls = ["",""];
 let addressesnotlsapi = [];
 
-let addressescsv = [];
+let addressescsv = ["https://raw.githubusercontent.com/zhenjiaoer/Worker/refs/heads/main/HK.csv","https://raw.githubusercontent.com/zhenjiaoer/Worker/refs/heads/main/TW.csv","https://raw.githubusercontent.com/zhenjiaoer/Worker/refs/heads/main/TH.csv","https://raw.githubusercontent.com/zhenjiaoer/Worker/refs/heads/main/JP.csv","https://raw.githubusercontent.com/zhenjiaoer/Worker/refs/heads/main/SG.csv","https://raw.githubusercontent.com/zhenjiaoer/Worker/refs/heads/main/KR.csv"];
 let DLS = 7;
 let remarkIndex = 1;//CSV备注所在列偏移量
 
-let subConverter = 'SUBAPI.cmliussss.net';
+let subConverter = 'sub.liger.pro';
 let subConfig = atob('aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2NtbGl1L0FDTDRTU1IvbWFpbi9DbGFzaC9jb25maWcvQUNMNFNTUl9PbmxpbmVfRnVsbF9NdWx0aU1vZGUuaW5p');
 let subProtocol = 'https';
 let noTLS = 'false';
@@ -22,8 +21,9 @@ let proxyIPs = [
 ];
 let 匹配PROXYIP = [];
 let socks5DataURL = '';
-let BotToken = '';
-let ChatID = '';
+let TOKEN = 'tlink';
+let BotToken = '1762097025:AAHcIJ0uTx-N_SmXdzcOPKNDI7sumlR6g2Y';
+let ChatID = '658116790';
 let 临时中转域名 = [];
 let 临时中转域名接口 = '';
 let EndPS = '';
@@ -42,7 +42,7 @@ let MamaJustKilledAMan = ['telegram', 'twitter', 'miaoko'];
 let proxyIPPool = [];
 let socks5Data;
 let alpn = '';
-let 网络备案 = `<a href='https://t.me/CMLiussss'>萌ICP备-20240707号</a>`;//写你自己的维护者广告
+let 网络备案 = `<a href='#'>萌ICP备-2025114514号</a>`;//写你自己的维护者广告
 let 额外ID = '0';
 let 加密方式 = 'auto';
 let 网站图标, 网站头像, 网站背景, xhttp = '';
@@ -417,7 +417,7 @@ async function getLink(重新汇总所有链接) {
 				method: 'get',
 				headers: {
 					'Accept': 'text/html,application/xhtml+xml,application/xml;',
-					'User-Agent': 'v2rayN/' + FileName + ' (https://github.com/cmliu/WorkerVless2sub)'
+					'User-Agent': 'v2rayN/' + FileName + ' 10.2.3'
 				},
 				signal: controller.signal // 将AbortController的信号量添加到fetch请求中
 			}).then(response => response.ok ? response.text() : Promise.reject())));
@@ -768,7 +768,7 @@ async function subHtml(request) {
 				<script src="https://cdn.jsdelivr.net/npm/@keeex/qrcodejs-kx@1.0.2/qrcode.min.js"></script>
 			</head>
 			<body>
-				<a href="https://github.com/cmliu/WorkerVless2sub" target="_blank" class="github-corner" aria-label="View source on Github">
+				<a href="#" target="_blank" class="github-corner" aria-label="View source on Github">
 					<svg viewBox="0 0 250 250" aria-hidden="true">
 						<path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
 						<path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
@@ -1113,7 +1113,7 @@ export default {
 			
 			
 				
-				${atob(atob('YUhSMGNITTZMeTluYVhSb2RXSXVZMjl0TDJOdGJHbDFMM2R2Y210bGNsWnNaWE56TW5OMVlnPT0='))}
+				
 				`;
 
 				return new Response(responseText, {

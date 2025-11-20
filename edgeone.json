@@ -1,7 +1,7 @@
 {
-  "name": "vless2sub",
+  "name": "edgeoneSub",
   "version": "1.0.0",
-  "description": "优选订阅生成器",
+  "description": "优选订阅",
   "functions": {
     "directory": "functions"
   },

@@ -1,16 +1,16 @@
-
 let 快速订阅访问入口 = ['auto'];
 let addresses = [];
-let addressesapi = [];
+let addressesapi = ["https://raw.githubusercontent.com/H1d3r/WorkerVless2sub/main/addressesapi.txt"];
+//let addressesapi = ["https://github.com/zengge99/iplist/raw/refs/heads/main/iplist.txt","https://raw.githubusercontent.com/zhenjiaoer/Worker/refs/heads/main/ip.txt","https://addressesapi.090227.xyz/CloudFlareYes","https://github.com/dbmh2023/addressesapi/raw/refs/heads/main/ipv4.txt"];
 
-let addressesnotls = [];
-let addressesnotlsapi = [];
+let addressesnotls = ["",""];
+let addressesnotlsapi = ["https://raw.githubusercontent.com/H1d3r/WorkerVless2sub/main/addressesapi.txt"];
 
-let addressescsv = [];
+let addressescsv = ["https://raw.githubusercontent.com/zhenjiaoer/Worker/refs/heads/main/HK.csv","https://raw.githubusercontent.com/zhenjiaoer/Worker/refs/heads/main/TW.csv","https://raw.githubusercontent.com/zhenjiaoer/Worker/refs/heads/main/TH.csv","https://raw.githubusercontent.com/zhenjiaoer/Worker/refs/heads/main/JP.csv","https://raw.githubusercontent.com/zhenjiaoer/Worker/refs/heads/main/SG.csv","https://raw.githubusercontent.com/zhenjiaoer/Worker/refs/heads/main/KR.csv"];
 let DLS = 7;
 let remarkIndex = 1;//CSV备注所在列偏移量
 
-let subConverter = 'SUBAPI.cmliussss.net';
+let subConverter = 'sub.liger.pro';
 let subConfig = atob('aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2NtbGl1L0FDTDRTU1IvbWFpbi9DbGFzaC9jb25maWcvQUNMNFNTUl9PbmxpbmVfRnVsbF9NdWx0aU1vZGUuaW5p');
 let subProtocol = 'https';
 let noTLS = 'false';
@@ -22,8 +22,9 @@ let proxyIPs = [
 ];
 let 匹配PROXYIP = [];
 let socks5DataURL = '';
-let BotToken = '';
-let ChatID = '';
+let TOKEN = 'tlink';
+let BotToken = '1762097025:AAHcIJ0uTx-N_SmXdzcOPKNDI7sumlR6g2Y';
+let ChatID = '658116790';
 let 临时中转域名 = [];
 let 临时中转域名接口 = '';
 let EndPS = '';
@@ -42,7 +43,7 @@ let MamaJustKilledAMan = ['telegram', 'twitter', 'miaoko'];
 let proxyIPPool = [];
 let socks5Data;
 let alpn = '';
-let 网络备案 = `<a href='https://t.me/CMLiussss'>萌ICP备-20240707号</a>`;//写你自己的维护者广告
+let 网络备案 = `<a href='#'>萌ICP备-2025114514号</a>`;//写你自己的维护者广告
 let 额外ID = '0';
 let 加密方式 = 'auto';
 let 网站图标, 网站头像, 网站背景, xhttp = '';
@@ -417,7 +418,7 @@ async function getLink(重新汇总所有链接) {
 				method: 'get',
 				headers: {
 					'Accept': 'text/html,application/xhtml+xml,application/xml;',
-					'User-Agent': 'v2rayN/' + FileName + ' (https://github.com/cmliu/WorkerVless2sub)'
+					'User-Agent': 'v2rayN/' + FileName + ' 10.2.3'
 				},
 				signal: controller.signal // 将AbortController的信号量添加到fetch请求中
 			}).then(response => response.ok ? response.text() : Promise.reject())));
@@ -768,7 +769,7 @@ async function subHtml(request) {
 				<script src="https://cdn.jsdelivr.net/npm/@keeex/qrcodejs-kx@1.0.2/qrcode.min.js"></script>
 			</head>
 			<body>
-				<a href="https://github.com/cmliu/WorkerVless2sub" target="_blank" class="github-corner" aria-label="View source on Github">
+				<a href="#" target="_blank" class="github-corner" aria-label="View source on Github">
 					<svg viewBox="0 0 250 250" aria-hidden="true">
 						<path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
 						<path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
@@ -918,8 +919,8 @@ async function subHtml(request) {
 	});
 }
 
-// 核心处理函数 - 同时支持 CF Pages 和 EdgeOne Pages
-async function handleRequest(request, env, clientIP, 部署环境) {
+export default {
+	async fetch(request, env) {
 		if (env.TOKEN) 快速订阅访问入口 = await 整理(env.TOKEN);
 		BotToken = env.TGTOKEN || BotToken;
 		ChatID = env.TGID || ChatID;
@@ -942,7 +943,7 @@ async function handleRequest(request, env, clientIP, 部署环境) {
 			const imgs = await 整理(env.IMG);
 			网站背景 = `background-image: url('${imgs[Math.floor(Math.random() * imgs.length)]}');`;
 		} else 网站背景 = '';
-		网络备案 = env.B64_BEIAN ? decodeBase64(env.B64_BEIAN) : (env.BEIAN || env.BY || 网络备案);
+		网络备案 = env.BEIAN || env.BY || 网络备案;
 		const userAgentHeader = request.headers.get('User-Agent');
 		const userAgent = userAgentHeader ? userAgentHeader.toLowerCase() : "null";
 		const url = new URL(request.url);
@@ -1043,7 +1044,7 @@ async function handleRequest(request, env, clientIP, 部署环境) {
 				}
 			}
 
-			path = env.PATH || "/";
+			path = env.PATH || "/?ed=2560";
 			sni = env.SNI || host;
 			type = env.TYPE || type;
 			隧道版本作者 = env.ED || 隧道版本作者;
@@ -1057,7 +1058,7 @@ async function handleRequest(request, env, clientIP, 部署环境) {
 				EndPS += ` 订阅器内置节点 ${空字段} 未设置！！！`;
 			}
 
-			await sendMessage(`#获取订阅 ${FileName}`, clientIP, `UA: ${userAgentHeader}</tg-spoiler>\n域名: ${url.hostname}\n<tg-spoiler>入口: ${url.pathname + url.search}</tg-spoiler>`);
+			await sendMessage(`#获取订阅 ${FileName}`, request.headers.get('CF-Connecting-IP'), `UA: ${userAgentHeader}</tg-spoiler>\n域名: ${url.hostname}\n<tg-spoiler>入口: ${url.pathname + url.search}</tg-spoiler>`);
 		} else {
 			host = url.searchParams.get('host');
 			uuid = url.searchParams.get('uuid') || url.searchParams.get('password') || url.searchParams.get('pw');
@@ -1082,7 +1083,7 @@ async function handleRequest(request, env, clientIP, 部署环境) {
 				协议类型 = atob('VHJvamFu');
 			}
 
-			if (!url.pathname.includes("/sub") || !host || !uuid) {
+			if (!url.pathname.includes("/sub")) {
 				const envKey = env.URL302 ? 'URL302' : (env.URL ? 'URL' : null);
 				if (envKey) {
 					const URLs = await 整理(env[envKey]);
@@ -1099,8 +1100,31 @@ async function handleRequest(request, env, clientIP, 部署环境) {
 				return await subHtml(request);
 			}
 
+			if (!host || !uuid) {
+				const responseText = `
+			缺少必填参数：host 和 uuid
+			Missing required parameters: host and uuid
+			پارامترهای ضروری وارد نشده: هاست و یوآی‌دی
+			
+			${url.origin}/sub?host=[your host]&uuid=[your uuid]&path=[your path]
+			
+			
+			
+			
+			
+			
+				
+				
+				`;
+
+				return new Response(responseText, {
+					status: 202,
+					headers: { 'content-type': 'text/plain; charset=utf-8' },
+				});
+			}
+
 			if (!path || path.trim() === '') {
-				path = '/';
+				path = '/?ed=2560';
 			} else {
 				// 如果第一个字符不是斜杠，则在前面添加一个斜杠
 				path = (path[0] === '/') ? path : '/' + path;
@@ -1418,57 +1442,25 @@ async function handleRequest(request, env, clientIP, 部署环境) {
 		}
 
 		try {
-			const subConverterResponse = await fetch(subConverterUrl, { headers: { 'User-Agent': `v2rayN/${FileName + atob('IChodHRwczovL2dpdGh1Yi5jb20vY21saXUvRWRnZU9uZS1QYWdlcy1CZXN0SVAyU1VCKQ==')} ` + 部署环境 } });
+			const subConverterResponse = await fetch(subConverterUrl, { headers: { 'User-Agent': `v2rayN/${FileName + atob('IChodHRwczovL2dpdGh1Yi5jb20vY21saXUvRWRnZU9uZS1QYWdlcy1CZXN0SVAyU1VCKQ==')}` } });
 
 			if (!subConverterResponse.ok) {
 				throw new Error(`Error fetching subConverterUrl: ${subConverterResponse.status} ${subConverterResponse.statusText}`);
 			}
 
-		let subConverterContent = await subConverterResponse.text();
+			let subConverterContent = await subConverterResponse.text();
 
-		if (协议类型 == atob('VHJvamFu') && (userAgent.includes('surge') || (format === 'surge' && !isSubConverterRequest)) && !userAgent.includes('cf-workers-sub')) {
-			subConverterContent = surge(subConverterContent, host, path);
+			if (协议类型 == atob('VHJvamFu') && (userAgent.includes('surge') || (format === 'surge' && !isSubConverterRequest)) && !userAgent.includes('cf-workers-sub')) {
+				subConverterContent = surge(subConverterContent, host, path);
+			}
+			subConverterContent = revertFakeInfo(subConverterContent, uuid, host);
+			if (!userAgent.includes('mozilla')) responseHeaders["Content-Disposition"] = `attachment; filename*=utf-8''${encodeURIComponent(FileName)}`;
+			return new Response(subConverterContent, { headers: responseHeaders });
+		} catch (error) {
+			return new Response(`Error: ${error.message}`, {
+				status: 500,
+				headers: { 'content-type': 'text/plain; charset=utf-8' },
+			});
 		}
-		subConverterContent = revertFakeInfo(subConverterContent, uuid, host);
-		if (!userAgent.includes('mozilla')) responseHeaders["Content-Disposition"] = `attachment; filename*=utf-8''${encodeURIComponent(FileName)}`;
-		return new Response(subConverterContent, { headers: responseHeaders });
-	} catch (error) {
-		return new Response(`Error: ${error.message}`, {
-			status: 500,
-			headers: { 'content-type': 'text/plain; charset=utf-8' },
-		});
-	}
-}
-
-// Cloudflare Workers / Pages 入口函数
-export default {
-	async fetch(request, env) {
-		// 获取客户端IP - CF Workers/Pages
-		const clientIP = request.headers.get('CF-Connecting-IP') || '未知IP';
-		return await handleRequest(request, env, clientIP, 'Cloudflare');
 	}
 };
-
-// EdgeOne Pages 入口函数
-export async function onRequest(context) {
-	const { request, env } = context;
-	// 获取客户端IP - EdgeOne Pages
-	const clientIP = request.headers.get('X-Real-IP') ||
-		request.headers.get('X-Forwarded-For')?.split(',')[0]?.trim() ||
-		request.headers.get('CF-Connecting-IP') ||
-		request.headers.get('True-Client-IP') ||
-		'未知IP';
-	return await handleRequest(request, env, clientIP, 'EdgeOne');
-}
-
-function decodeBase64(base64String) {
-	// 1. 使用 atob 将 Base64 字符串解码为二进制字符串
-	const binaryString = atob(base64String);
-	// 2. 将二进制字符串的每个字符转换为对应的字节码，存入 Uint8Array
-	const bytes = new Uint8Array(binaryString.length);
-	for (let i = 0; i < binaryString.length; i++) {
-		bytes[i] = binaryString.charCodeAt(i);
-	}
-	// 3. 使用 TextDecoder 将字节数组按 UTF-8 编码解码为字符串
-	return new TextDecoder('utf-8').decode(bytes);
-}

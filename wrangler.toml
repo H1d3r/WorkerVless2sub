@@ -1,4 +1,4 @@
-name = "vless2sub"
+name = "edgeonesub"
 main = "functions/[[path]].js"
 compatibility_date = "2024-09-25"
 keep_vars = true

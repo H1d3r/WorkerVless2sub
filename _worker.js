@@ -1,9 +1,10 @@
 let 快速订阅访问入口 = ['auto'];
 let addresses = [];
-let addressesapi = ["https://github.com/zengge99/iplist/raw/refs/heads/main/iplist.txt","https://raw.githubusercontent.com/zhenjiaoer/Worker/refs/heads/main/ip.txt","https://addressesapi.090227.xyz/CloudFlareYes","https://github.com/dbmh2023/addressesapi/raw/refs/heads/main/ipv4.txt"];
+let addressesapi = ["https://raw.githubusercontent.com/H1d3r/WorkerVless2sub/main/addressesapi.txt"];
+//let addressesapi = ["https://github.com/zengge99/iplist/raw/refs/heads/main/iplist.txt","https://raw.githubusercontent.com/zhenjiaoer/Worker/refs/heads/main/ip.txt","https://addressesapi.090227.xyz/CloudFlareYes","https://github.com/dbmh2023/addressesapi/raw/refs/heads/main/ipv4.txt"];
 
 let addressesnotls = ["",""];
-let addressesnotlsapi = [];
+let addressesnotlsapi = ["https://raw.githubusercontent.com/H1d3r/WorkerVless2sub/main/addressesapi.txt"];
 
 let addressescsv = ["https://raw.githubusercontent.com/zhenjiaoer/Worker/refs/heads/main/HK.csv","https://raw.githubusercontent.com/zhenjiaoer/Worker/refs/heads/main/TW.csv","https://raw.githubusercontent.com/zhenjiaoer/Worker/refs/heads/main/TH.csv","https://raw.githubusercontent.com/zhenjiaoer/Worker/refs/heads/main/JP.csv","https://raw.githubusercontent.com/zhenjiaoer/Worker/refs/heads/main/SG.csv","https://raw.githubusercontent.com/zhenjiaoer/Worker/refs/heads/main/KR.csv"];
 let DLS = 7;

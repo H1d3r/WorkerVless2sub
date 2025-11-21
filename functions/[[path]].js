@@ -47,7 +47,6 @@ let 额外ID = '0';
 let 加密方式 = 'auto';
 let 网站图标, 网站头像, 网站背景, xhttp = '';
 async function 整理优选列表(api) {
-	const cfipList = await getCloudflareIPInfo();
 	if (!api || api.length === 0) return [];
 
 	let newapi = "";
@@ -125,7 +124,17 @@ async function 整理优选列表(api) {
 		clearTimeout(timeout);
 	}
 
-	const newAddressesapi = await 整理(newapi+cfipList);
+	// 获取Cloudflare优选IP信息并添加到newapi中
+	try {
+		const cfipList = await getCloudflareIPInfo();
+		if (cfipList && cfipList.length > 0) {
+			newapi += cfipList + '\n';
+		}
+	} catch (error) {
+		console.error('获取Cloudflare IP信息时出错:', error);
+	}
+
+	const newAddressesapi = await 整理(newapi);
 
 	// 返回处理后的结果
 	return newAddressesapi;

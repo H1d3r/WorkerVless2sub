@@ -1499,5 +1499,6 @@ async function getCloudflareIPInfo() {
 	}
 	
 	// 格式化输出为字符串，格式为 IP:443#colo，每行一条
+	console.log(ipInfo);
 	return ipInfo.map(item => `${item.ip}:443#${item.colo}`).join('\n');
 }

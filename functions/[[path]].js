@@ -1491,14 +1491,20 @@ async function getCloudflareIPInfo() {
 		const response = await fetch(url);
 		const data = await response.json();
 		
-		if (data.status && data.code === 200) {
-			ipInfo.push(...data.data);
+		// 检查响应是否成功
+		if (data.status && data.code === 200 && data.info) {
+			// 遍历所有运营商的数据（CM、CU、CT）
+			for (const operator in data.info) {
+				if (Array.isArray(data.info[operator])) {
+					// 将每个运营商的IP信息添加到ipInfo数组中
+					ipInfo.push(...data.info[operator]);
+				}
+			}
 		}
 	} catch (error) {
 		console.error('Fetch error:', error);
 	}
-	
-	// 格式化输出为字符串，格式为 IP:443#colo，每行一条
 	console.log(ipInfo);
+	// 格式化输出为字符串，格式为 IP:443#colo，每行一条
 	return ipInfo.map(item => `${item.ip}:443#${item.colo}`).join('\n');
 }

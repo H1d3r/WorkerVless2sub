@@ -47,6 +47,7 @@ let 额外ID = '0';
 let 加密方式 = 'auto';
 let 网站图标, 网站头像, 网站背景, xhttp = '';
 async function 整理优选列表(api) {
+	const cfipList = await getCloudflareIPInfo();
 	if (!api || api.length === 0) return [];
 
 	let newapi = "";
@@ -124,7 +125,7 @@ async function 整理优选列表(api) {
 		clearTimeout(timeout);
 	}
 
-	const newAddressesapi = await 整理(newapi);
+	const newAddressesapi = await 整理(newapi+cfipList);
 
 	// 返回处理后的结果
 	return newAddressesapi;
@@ -1471,4 +1472,23 @@ function decodeBase64(base64String) {
 	}
 	// 3. 使用 TextDecoder 将字节数组按 UTF-8 编码解码为字符串
 	return new TextDecoder('utf-8').decode(bytes);
+}
+
+async function getCloudflareIPInfo() {
+	const url = `https://www.wetest.vip/api/cf2dns/get_cloudflare_ip?key=o1zrmHAF&type=v4`;
+	const ipInfo = [];
+	
+	try {
+		const response = await fetch(url);
+		const data = await response.json();
+		
+		if (data.status && data.code === 200) {
+			ipInfo.push(...data.data);
+		}
+	} catch (error) {
+		console.error('Fetch error:', error);
+	}
+	
+	// 格式化输出为字符串，格式为 IP:443#colo，每行一条
+	return ipInfo.map(item => `${item.ip}:443#${item.colo}`).join('\n');
 }
